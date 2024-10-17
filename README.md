@@ -1,10 +1,11 @@
-- SIMPOCS
-# Aplicação de Mapeamento de Pontos de Coleta e Relatórios de Coleta
+# SIMPOCS
 
-## Descrição
+## Aplicação de Mapeamento de Pontos de Coleta e Relatórios de Coleta
+
+### Descrição
 Esta aplicação permite mapear pontos de coleta e gerar relatórios detalhados das coletas realizadas. A interface do usuário é desenvolvida utilizando Next.js, TypeScript e Tailwind CSS. O backend da aplicação é desenvolvido em PHP.
 
-## Tecnologias Utilizadas
+### Tecnologias Utilizadas
 - **Frontend:**
   - Next.js
   - TypeScript
