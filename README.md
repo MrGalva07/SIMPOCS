@@ -1,3 +1,20 @@
+# SIMPOCS
+
+## Aplicação de Mapeamento de Pontos de Coleta e Relatórios de Coleta
+
+### Descrição
+Esta aplicação permite mapear pontos de coleta e gerar relatórios detalhados das coletas realizadas. A interface do usuário é desenvolvida utilizando Next.js, TypeScript e Tailwind CSS. O backend da aplicação é desenvolvido em PHP.
+
+### Tecnologias Utilizadas
+- **Frontend:**
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+- **Backend:**
+  - PHP
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
