@@ -19,14 +19,14 @@ const LoginForm = () => {
       };
       signIn("credentials", {
         ...data,
-        callbackUrl: "/dashboard",
+        callbackUrl: "/home",
       });
     }
   return (
     <div className='h-full'>
          <form
           onSubmit={login}
-          className="p-10 w-96 max-w-96 h-screen max-h-screen flex flex-col gap-2 bg-gradient-to-r from-green-200  to-green-100 "
+          className="p-10 w-96 max-w-96 h-screen max-h-screen flex flex-col gap-2  "
 
         >
           <h1 className="text-black roboto-regular self-start text-3xl mb-3">

@@ -16,7 +16,7 @@ import {
 const items = [
   {
     title: "Início",
-    url: "/dashboard",
+    url: "/home",
     icon: Home,
   },
   {
@@ -42,7 +42,7 @@ export function AppSidebar() {
             <Image
             src ={img3}
             alt="logo"
-            className="h-14 w-40 m-6 mt-36 "
+            className="h-16 w-40 m-6 mt-36 "
             />
           </SidebarGroupLabel >
           <SidebarGroupContent>

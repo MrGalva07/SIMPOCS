@@ -9,6 +9,7 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		backgroundImage: { 'gradient-login': "url('/assets/images/background.jpg')", },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
