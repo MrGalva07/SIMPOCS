@@ -67,7 +67,7 @@ const page = () => {
       <aside>
         <SidebarProvider className="bg-[#F2F3F2] static absolute-top">
           <AppSidebar />
-          {/*<SidebarTrigger />*/}
+          <SidebarTrigger />
           <main></main>
         </SidebarProvider>
       </aside>

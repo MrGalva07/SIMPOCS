@@ -23,7 +23,7 @@ const LoginForm = () => {
       });
     }
   return (
-    <div className='h-full'>
+    <div className='h-full bg-white'>
          <form
           onSubmit={login}
           className="p-10 w-96 max-w-96 h-screen max-h-screen flex flex-col gap-2  "
@@ -44,7 +44,7 @@ const LoginForm = () => {
                 name="email"
                 type="email"
                 placeholder="Email"
-                className="input input-lg w-full h-3/4 pt-2 pb-2 text-lg"
+                className="input input-lg w-full h-3/4 pt-2 pb-2 text-lg bg-white border-slate-300 text-black "
               />
             </div>
 
@@ -59,7 +59,7 @@ const LoginForm = () => {
                 name="password"
                 type="password"
                 placeholder="Senha"
-                className="input input-lg w-full h-3/4 pt-2 pb-2 text-lg "
+                className="input input-lg w-full h-3/4 pt-2 pb-2 text-lg bg-white border-slate-300 "
               />
             </div>
           </div>

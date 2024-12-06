@@ -9,7 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-		backgroundImage: { 'gradient-login': "url('/assets/images/background.jpg')", },
+		backgroundImage: { 'gradient-login': "url('/assets/images/background.jpg')", },backgroundRegioes: { 'gradient-regiao': "url('/assets/images/gradient-images-2.png')", },
+		
+		
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

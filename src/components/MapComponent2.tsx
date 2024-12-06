@@ -4,7 +4,7 @@ import { useLoadScript, GoogleMap } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '288px',
+  height: '188px',
 };
 
 interface MapComponentProps {
@@ -12,7 +12,7 @@ interface MapComponentProps {
   longitude: number;
 }
 
-const MapComponent2: React.FC<MapComponentProps> = ({ latitude, longitude }) => {
+const MapComponent: React.FC<MapComponentProps> = ({ latitude, longitude }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -29,9 +29,9 @@ const MapComponent2: React.FC<MapComponentProps> = ({ latitude, longitude }) => 
     <GoogleMap
     mapContainerStyle={containerStyle}
     center={{ lat: latitude || -23.5505, lng: longitude || -46.6333 }} // Fallback seguro
-    zoom={11}
+    zoom={10}
   />
   );
 };
 
-export default MapComponent2;
+export default MapComponent;

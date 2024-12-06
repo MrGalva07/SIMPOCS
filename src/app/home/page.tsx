@@ -1,115 +1,144 @@
 'use client'
-import { AppSidebar } from '@/components/ui/app-sidebar';
-import { SidebarProvider } from '@/components/ui/sidebar';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import MapComponent from '@/components/MapComponent'
+import { AppSidebar } from "@/components/ui/app-sidebar";
+import {
+  Sidebar,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import React from "react";
+import { CardAdesao } from "@/app/relatorios/_components/card";
+import MapComponent from "@/components/MapComponent";
+import { useState } from "react";
+import { FiTruck, FiTrash  } from "react-icons/fi";
+import { PiBoxArrowDownLight,PiBoxArrowDown } from "react-icons/pi";
 
+export type Report = {
+  name: string;
+  collected: number;
+  total: number;
+};
 
 const page = () => {
-  // Estados para latitude e longitude
-  const [latitude, setLatitude] = useState<number>(-23.5505); // Padrão: São Paulo
-  const [longitude, setLongitude] = useState<number>(-46.6333); // Padrão: São Paulo
+  const [latitude, setLatitude] = useState<number>(-8.05388888888889); 
+const [longitude, setLongitude] = useState<number>(-34.881111); 
 
-  const router = useRouter(); // Hook do Next.js para capturar parâmetros da URL
+ 
+  const dataGood = [
+    { name: "Jaboatão dos Guararapes", collected: 42000, total: 45000 },
+    { name: "Olinda", collected: 37200, total: 40000 },
+    { name: "Paulista", collected: 39800, total: 43000 },
+    { name: "Camaragibe", collected: 33100, total: 38000 },
 
-  useEffect(() => {
-    // Captura os parâmetros de latitude e longitude da URL
-    const queryParams = new URLSearchParams(window.location.search);
-    const latitudeParam = queryParams.get('latitude');
-    const longitudeParam = queryParams.get('longitude');
-
-    // Atualiza os estados se os parâmetros existirem na URL
-    if (latitudeParam && longitudeParam) {
-      setLatitude(parseFloat(latitudeParam)); // Atualiza a latitude
-      setLongitude(parseFloat(longitudeParam)); // Atualiza a longitude
-    }
-  }, [router]);
-
-  // Função de atualização dinâmica
-  const handleUpdateMap = (lat: number, lng: number) => {
-    setLatitude(lat);
-    setLongitude(lng);
-  };
+  ];
+  
 
   return (
     <main className="flex justify-center">
       <aside>
-        <SidebarProvider>
+        <SidebarProvider className="bg-[#F2F3F2] static absolute-top">
           <AppSidebar />
-          <main>
-            {/*<SidebarTrigger />   torna o sidebar responsivo*/}
-          </main>
+          {/*<SidebarTrigger />*/}
+          <main></main>
         </SidebarProvider>
       </aside>
 
-      <section className="flex-col border-2 top-0 w-[100%] h-[100vh] justify-center items-center static">
-        <article id="MAP" className="flex justify-center mt-4">
+      <div className="flex flex-col w-full p-2.5 gap-2 bg-[#B9C6BF] ">
+        <div className="flex flex-col w-full p-3.5 border shadow-sm rounded-xl gap-2 overflow-hidden bg-[#F2F3F2] justify-center">
+          <div className="flex justify-between items-center">
+            <h1 className="text-lg font-semibold w-fit">
+              Seu dashboard
+            </h1>
+            
+          </div>
+        </div>
+
+        <div className="flex flex-col w-full h-fit p-2.5 border shadow-sm rounded-xl gap-2 overflow-hidden bg-[#F2F3F2]">
+          <div className="flex justify-between items-center">
+            <div className="flex gap-4 w-full justify-center">
+             
+            <article id="MAP" className="flex justify-center mt-2">
           <div id="map" className="border-2 w-[900px] h-72">
             {/* Passando latitude e longitude como props */}
             <MapComponent latitude={latitude} longitude={longitude} />
           </div>
         </article>
-
-        <article id="dash" className="flex border-2 w-[100%] h-96">
-          <div id="visaoGeral" className="border-2 w-[550px] h-80 flex-col justify-center m-3">
-            <h2 className="text-center font-bold text-xl mb-10 mt-6 text-[17pt]">
-              Visão Geral
-            </h2>
-            <ul className="flex-col justify-center w-[100%] max-w-[400px] items-center">
-              <li className="mb-6 border border-slate-300 rounded-sm flex justify-start">
-                <div className="flex justify-start gap-52 h-12 items-center w-[450px] rounded-sm">
-                  <h3 className="font-medium text-[13pt]"> Regiões de coleta</h3>
-                  <h4>82</h4>
-                </div>
-              </li>
-              <li className="mb-6 border border-slate-300 rounded-sm flex justify-start">
-                <div className="flex justify-start gap-64 h-12 items-center w-[450px] rounded-sm">
-                  <h3 className="font-medium text-[13pt]"> EcoEstações</h3>
-                  <h4>11</h4>
-                </div>
-              </li>
-              <li className="mb-6 border border-slate-300 rounded-sm flex justify-start">
-                <div className="flex justify-start gap-32 h-12 items-center w-[450px] rounded-sm">
-                  <h3 className="font-medium text-[13pt]"> Pontos de Entrega voluntária</h3>
-                  <h4>64</h4>
-                </div>
-              </li>
-            </ul>
+            
+            </div>
           </div>
 
-          <div className="border-2 w-[550px] h-80 justify-center m-3">
-            <h2 className="text-center font-bold text-xl mb-10 mt-6">
-              Regiões com maior adesão da coleta seletiva
-            </h2>
-            <ul className="flex-col justify-center w-[100%] max-w-[400px] items-center">
-              <li className="mb-6 border border-slate-300 rounded-sm flex justify-start">
-                <div className="flex justify-start gap-52 h-12 items-center w-[450px] rounded-sm">
-                  <h3 className="font-medium text-[13pt]"> Ouro Preto</h3>
-                  <h4>82%</h4>
+          <div className="grid grid-cols-2 gap-2.5">
+         
+            <Card className="bg-[#F2F3F2]">
+              <CardHeader>
+                <CardTitle className="text-center">
+                  Visão Geral
+
+
+              <div className=" flex-col mb-10 w-[500px]">
+                
+              <div className='flex h-12 items-center w-[500px] rounded-sm gap-60 border mt-10 mb-5 justify-center '>
+                <div>
+                 <div><h3 className='font-medium text-[13pt]'> Regiões de coleta</h3></div>
+                 </div>
+
+                 <div className="flex">
+                  <div><h4>82</h4></div>
+                  <div className="ml-2">  <FiTruck color="green" /></div>
+                  </div>
                 </div>
-              </li>
-              <li className="mb-6 border border-slate-300 rounded-sm flex justify-start">
-                <div className="flex justify-start gap-64 h-12 items-center w-[450px] rounded-sm">
-                  <h3 className="font-medium text-[13pt]"> Peixinhos</h3>
-                  <h4>80%</h4>
+              
+              
+                <div className='flex h-12 items-center w-[500px] rounded-sm gap-60 border mt-10 mb-5 justify-center'>
+                  <div>
+                 <div><h3 className='font-medium text-[13pt]'> Regiões de coleta</h3></div>
+                 </div>
+
+                 <div className="flex">
+                  <div><h4>11</h4></div>
+                 <div className="ml-2"> <PiBoxArrowDown /> </div>
+                  </div>
                 </div>
-              </li>
-              <li className="mb-6 border border-slate-300 rounded-sm flex justify-start">
-                <div className="flex justify-start gap-32 h-12 items-center w-[450px] rounded-sm">
-                  <h3 className="font-medium text-[13pt]"> Bairro Novo</h3>
-                  <h4>77%</h4>
+           
+            
+                  
+                <div className='flex h-12 items-center w-[500px] rounded-sm gap-60 border mt-10 mb-5 justify-center'>
+                  <div >
+                 <div><h3 className='font-medium text-[13pt]'> Regiões de coleta</h3></div>
+                 </div>
+                 <div className="flex">
+                  <div><h4>64</h4></div>
+                  <div className="ml-2"><FiTrash /></div>
+                  </div>
                 </div>
-              </li>
-            </ul>
+          
           </div>
-        </article>
+                </CardTitle>
+              </CardHeader>
+             
+             
+            </Card>
 
+            <Card className="bg-[#F2F3F2]">
+              <CardHeader>
+                <CardTitle className="text-center">
+                  Regiões com maior adesão da Coleta Seletiva no último mês
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-2.5">
+                {dataGood.map((report, key) => (
+                  <CardAdesao report={report} key={key}></CardAdesao>
+                ))}
+              </CardContent>
+            </Card>
 
-      </section>
-
+           
+          </div>
+        </div>
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;
