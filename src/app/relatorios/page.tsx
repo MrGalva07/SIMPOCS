@@ -1,6 +1,6 @@
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import {
-  Sidebar,
+
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
@@ -16,7 +16,7 @@ export type Report = {
   total: number;
 };
 
-const page = () => {
+const Page = () => {
   const dataBad: Report[] = [
     { name: "Boa Viagem", collected: 12345, total: 45000 },
     { name: "Casa Forte", collected: 8910, total: 40000 },
@@ -67,7 +67,7 @@ const page = () => {
       <aside>
         <SidebarProvider className="bg-[#F2F3F2] static absolute-top">
           <AppSidebar />
-          {/*<SidebarTrigger />*/}
+          <SidebarTrigger />
           <main></main>
         </SidebarProvider>
       </aside>
@@ -153,4 +153,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

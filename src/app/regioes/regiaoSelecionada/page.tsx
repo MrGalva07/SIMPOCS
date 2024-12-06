@@ -1,9 +1,9 @@
 "use client";
 import { AppSidebar } from '@/components/ui/app-sidebar';
 import {
-  Sidebar,
-  SidebarProvider,
-  SidebarTrigger,
+
+  SidebarProvider
+
 } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CardAdesao } from "@/app/relatorios/_components/card";
@@ -15,8 +15,8 @@ import { GoPlusCircle } from "react-icons/go";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
-const page = () => {
-  const [dataGood, setDataGood] = useState([
+const Page = () => {
+  const [dataGood] = useState([
     { name: "Agosto/2024", collected: 75.809, total: 125.845 },
     { name: "Julho/2024", collected: 64.809, total: 125.845 },
     { name: "Junho/2024", collected: 58.809, total: 125.845 },
@@ -272,5 +272,5 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 

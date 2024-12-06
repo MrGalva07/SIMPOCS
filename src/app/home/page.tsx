@@ -1,18 +1,18 @@
 'use client'
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import {
-  Sidebar,
+
   SidebarProvider,
-  SidebarTrigger,
+
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import React from "react";
 import { CardAdesao } from "@/app/relatorios/_components/card";
 import MapComponent from "@/components/MapComponent";
 import { useState } from "react";
 import { FiTruck, FiTrash  } from "react-icons/fi";
-import { PiBoxArrowDownLight,PiBoxArrowDown } from "react-icons/pi";
+import {PiBoxArrowDown } from "react-icons/pi";
 
 export type Report = {
   name: string;
@@ -20,9 +20,9 @@ export type Report = {
   total: number;
 };
 
-const page = () => {
-  const [latitude, setLatitude] = useState<number>(-8.05388888888889); 
-const [longitude, setLongitude] = useState<number>(-34.881111); 
+const Page = () => {
+  const [latitude] = useState<number>(-8.05388888888889); 
+const [longitude] = useState<number>(-34.881111); 
 
  
   const dataGood = [
@@ -141,4 +141,4 @@ const [longitude, setLongitude] = useState<number>(-34.881111);
   );
 };
 
-export default page;
+export default Page;

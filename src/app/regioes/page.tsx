@@ -1,15 +1,15 @@
 'use client';
 
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/ui/app-sidebar';
 import axios from 'axios';
 import { Autocomplete, TextField, Button } from '@mui/material';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { createTheme, ThemeProvider} from '@mui/material/styles';
 import { useRouter } from 'next/navigation'; 
 
 import cityCoordinates from '@/app/cityCoordinates.json';
-import MapComponent from '@/components/MapComponent';
+
 
 type IBGEUFResponse = {
   sigla: string;
@@ -70,8 +70,7 @@ const SelectPage = () => {
   const [cities, setCities] = useState<IBGECITYResponse[]>([]);
   const [selectedUf, setSelectedUf] = useState<IBGEUFResponse | null>(null);
   const [selectedCity, setSelectedCity] = useState<IBGECITYResponse | null>(null);
-  const [latitude, setLatitude] = useState<number>(-23.5505); // Default: São Paulo
-  const [longitude, setLongitude] = useState<number>(-46.6333); // Default: São Paulo
+
 
   const router = useRouter();
 
